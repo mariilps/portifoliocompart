@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Portfólio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #ffffff;
+        }
+
+        /* ================= MENU ================= */
+
+        header {
+            background: #080808;
+            border-bottom: 1px solid #ff2d8d;
+            padding: 18px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h2 {
+            color: #ff2d8d;
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff2d8d;
+        }
+
+
+        /* ================= INÍCIO ================= */
+
+        .inicio {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 8%;
+
+            background:
+                radial-gradient(circle at 80% 50%,
+                rgba(255,45,141,0.18),
+                transparent 35%),
+                #0d0d0d;
+        }
+
+        .inicio-container {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .foto {
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+            object-fit: cover;
+
+            border: 5px solid #ff2d8d;
+
+            box-shadow:
+                0 0 30px rgba(255,45,141,0.45);
+        }
+
+        .inicio-texto h1 {
+            font-size: 52px;
+            margin-bottom: 10px;
+        }
+
+        .inicio-texto h1 span {
+            color: #ff2d8d;
+        }
+
+        .inicio-texto h3 {
+            color: #ff2d8d;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .inicio-texto p {
+            line-height: 1.8;
+            max-width: 600px;
+            color: #d4d4d4;
+        }
+
+        .botao {
+            display: inline-block;
+
+            margin-top: 25px;
+            padding: 13px 28px;
+
+            background: #ff2d8d;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background: #ff5ca8;
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 20px rgba(255,45,141,0.5);
+        }
+
+
+        /* ================= SEÇÕES ================= */
+
+        section {
+            padding: 80px 8%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section h2 {
+            text-align: center;
+
+            font-size: 34px;
+
+            color: white;
+
+            margin-bottom: 45px;
+        }
+
+        section h2::after {
+            content: "";
+
+            display: block;
+
+            width: 60px;
+            height: 4px;
+
+            background: #ff2d8d;
+
+            margin: 12px auto;
+            border-radius: 10px;
+        }
+
+
+        /* ================= SOBRE ================= */
+
+        .sobre {
+            background: #111111;
+            max-width: none;
+        }
+
+        .sobre-conteudo {
+            max-width: 850px;
+            margin: auto;
+
+            text-align: center;
+
+            line-height: 1.8;
+
+            color: #d0d0d0;
+        }
+
+
+        /* ================= HABILIDADES ================= */
+
+        .habilidades {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .habilidade {
+            background: #151515;
+
+            padding: 30px;
+
+            text-align: center;
+
+            border: 1px solid #292929;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        .habilidade:hover {
+            transform: translateY(-7px);
+
+            border-color: #ff2d8d;
+
+            box-shadow:
+                0 10px 30px rgba(255,45,141,0.15);
+        }
+
+        .habilidade h3 {
+            color: #ff2d8d;
+            margin-bottom: 12px;
+        }
+
+        .habilidade p {
+            color: #c7c7c7;
+            line-height: 1.6;
+        }
+
+
+        /* ================= EXPERIÊNCIA ================= */
+
+        .experiencia {
+            background: #111111;
+            max-width: none;
+        }
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .item {
+            border-left: 3px solid #ff2d8d;
+
+            padding:
+                0 0 30px 25px;
+
+            margin-bottom: 25px;
+        }
+
+        .item h3 {
+            color: white;
+            margin-bottom: 6px;
+        }
+
+        .item span {
+            color: #ff2d8d;
+            font-size: 14px;
+        }
+
+        .item p {
+            margin-top: 10px;
+
+            color: #c7c7c7;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= PROJETOS ================= */
+
+        .projetos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .projeto {
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            border-radius: 12px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .projeto:hover {
+            transform: translateY(-6px);
+
+            border-color: #ff2d8d;
+
+            box-shadow:
+                0 10px 30px rgba(255,45,141,0.15);
+        }
+
+        .projeto h3 {
+            color: #ff2d8d;
+            margin-bottom: 12px;
+        }
+
+        .projeto p {
+            color: #c7c7c7;
+
+            line-height: 1.6;
+
+            margin-bottom: 18px;
+        }
+
+        .projeto a {
+            color: #ff2d8d;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= FORMAÇÃO ================= */
+
+        .formacao {
+            background: #111111;
+            max-width: none;
+        }
+
+        .formacao-item {
+            max-width: 850px;
+
+            margin: 0 auto 15px;
+
+            background: #151515;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            border-left: 3px solid #ff2d8d;
+        }
+
+        .formacao-item h3 {
+            color: white;
+        }
+
+        .formacao-item span {
+            color: #ff2d8d;
+            font-size: 14px;
+        }
+
+        .formacao-item p {
+            margin-top: 8px;
+            color: #c7c7c7;
+        }
+
+
+        /* ================= CONTATO ================= */
+
+        .contato {
+            text-align: center;
+        }
+
+        .contatos {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .contato-card {
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            padding: 22px 30px;
+
+            border-radius: 10px;
+
+            min-width: 200px;
+
+            transition: 0.3s;
+        }
+
+        .contato-card:hover {
+            border-color: #ff2d8d;
+
+            transform: translateY(-4px);
+        }
+
+        .contato-card strong {
+            display: block;
+
+            color: #ff2d8d;
+
+            margin-bottom: 6px;
+        }
+
+
+        /* ================= RODAPÉ ================= */
+
+        footer {
+            background: #080808;
+
+            border-top: 1px solid #292929;
+
+            color: #888;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer span {
+            color: #ff2d8d;
+        }
+
+
+        /* ================= RESPONSIVO ================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 5px 10px;
+            }
+
+            .inicio-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .inicio-texto h1 {
+                font-size: 38px;
+            }
+
+            .foto {
+                width: 190px;
+                height: 190px;
+            }
+
+            .habilidades {
+                grid-template-columns: 1fr;
+            }
+
+            .projetos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= MENU ================= -->
+
+    <header>
+
+        <h2> Portfólio</h2>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="mariana.html">Mariana</a>
+            <a href="nicoly.html">Nicoly</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= INÍCIO ================= -->
+
+    <section class="inicio" id="inicio">
+
+        <div class="inicio-container">
+
+            <div class="inicio-texto">
+
+                <h1>
+                    Olá, nós somos
+                    <span>Nicoly Melissa e Mariana Lopes</span>
+                </h1>
+
+                <h3>
+                    Estudantes | Desenvolvedoras | 
+                </h3>
+
+                <p>
+                    Somos pessoas dedicadas, comunicativas e compartilhamos o 
+                    mesmo amor por psicologia. Este é o nosso portfólio pessoal, onde
+                    apresentamos nossas habilidades, experiências, formação
+                    e projetos.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SOBRE ================= -->
+
+    <section class="sobre" id="sobre">
+
+        <h2>Sobre Nós</h2>
+
+        <div class="sobre-conteudo">
+
+            <p>
+                Olá! Nossos nomes são <strong>Nicoly Melissa</strong> e <strong>Mariana Lopes</strong>.
+                Somos profissionais dedicadas, responsáveis, comunicativas e profundamente comprometidas com nosso desenvolvimento pessoal e profissional. 
+                Atualmente, estamos no ensino médio e pretendemos cursar a Faculdade de Psicologia, área pela qual temos grande interesse, especialmente no desenvolvimento humano, 
+                nas relações interpessoais e no acolhimento. 
+                Buscamos constantemente adquirir novos conhecimentos, 
+                desenvolver nossas habilidades e contribuir de forma positiva nos ambientes em que estamos inseridas.
+            </p>
+
+            <br>
+
+        
+
+        </div>
+
+    </section>
+
+    <!-- ================= RODAPÉ ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 <span></span>.
+            Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
